@@ -30,14 +30,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .badge-subject {
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 20px;
-        }
-        .bg-elettrotecnica { background-color: #e0a96d; color: #fff; }
-        .bg-elettronica { background-color: #0d6efd; color: #fff; }
-        .bg-tpsee { background-color: #198754; color: #fff; }
         .price-tag {
             font-size: 1.25rem;
             font-weight: bold;
@@ -50,7 +42,7 @@
     <!-- NAVIGAZIONE -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-link navbar-brand fw-bold" href="#"><i class="fa-solid fa-microchip me-2 text-primary"></i>Didattica STEM</a>
+            <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-microchip me-2 text-primary"></i>Didattica STEM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -82,8 +74,8 @@
                 <!-- Scheda 1: Elettrotecnica -->
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <span class="badge bg-primary mb-2">Elettrotecnica</span>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-primary mb-2 align-self-start">Elettrotecnica</span>
                             <h5 class="card-title fw-bold">Corso Completo di Circuiti in C.A.</h5>
                             <p class="card-text text-muted">Dispense teoriche ed esercizi svolti su numeri complessi, fasori, rifasamento e sistemi trifase.</p>
                             <ul class="list-unstyled small text-muted mb-4">
@@ -92,7 +84,6 @@
                             </ul>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <span class="price-tag">€9.99</span>
-                                <!-- Sostituisci # con il tuo link Gumroad/Payhip/PayPal -->
                                 <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-cart-shopping me-1"></i>Acquista</a>
                             </div>
                         </div>
@@ -102,8 +93,8 @@
                 <!-- Scheda 2: Elettronica -->
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <span class="badge bg-primary mb-2">Elettronica</span>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-primary mb-2 align-self-start">Elettronica</span>
                             <h5 class="card-title fw-bold">Amplificatori Operazionali & Filtri</h5>
                             <p class="card-text text-muted">Guida pratica al calcolo, simulazione LTSpice e realizzazione di filtri attivi e configurazioni base.</p>
                             <ul class="list-unstyled small text-muted mb-4">
@@ -121,8 +112,8 @@
                 <!-- Scheda 3: TPSEE -->
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">TPSEE</span>
+                        <div class="card-body d-flex flex-column">
+                            <span class="badge bg-success mb-2 align-self-start">TPSEE</span>
                             <h5 class="card-title fw-bold">Progettazione Microcontrollori (Arduino/ESP32)</h5>
                             <p class="card-text text-muted">Raccolta di progetti completi di schema elettrico, codice C++ commentato e relazione tecnica.</p>
                             <ul class="list-unstyled small text-muted mb-4">
@@ -159,6 +150,7 @@
         </div>
     </footer>
 
-    <script href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
