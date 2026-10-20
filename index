@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiale Didattico | Elettrotecnica, Elettronica & TPSEE</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0b5ed7;
+            --dark-bg: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .card {
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 12px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .badge-subject {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+        .bg-elettrotecnica { background-color: #e0a96d; color: #fff; }
+        .bg-elettronica { background-color: #0d6efd; color: #fff; }
+        .bg-tpsee { background-color: #198754; color: #fff; }
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #198754;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGAZIONE -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-link navbar-brand fw-bold" href="#"><i class="fa-solid fa-microchip me-2 text-primary"></i>Didattica STEM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#materiale">Materiale Didattico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#chi-sono">Chi Sono</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Risorse Didattiche di Elettronica & TPSEE</h1>
+            <p class="lead text-light mb-4">Appunti, dispense, esercizi svolti e progetti di laboratorio per studenti e docenti degli Istituti Tecnici Industriali.</p>
+            <a href="#materiale" class="btn btn-primary btn-lg rounded-pill px-4 me-2"><i class="fa-solid fa-book-open me-2"></i>Esplora i Materiali</a>
+        </div>
+    </header>
+
+    <!-- SEZIONE MATERIALE -->
+    <section id="materiale" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Materiale Disponibile</h2>
+            <div class="row g-4">
+
+                <!-- Scheda 1: Elettrotecnica -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Elettrotecnica</span>
+                            <h5 class="card-title fw-bold">Corso Completo di Circuiti in C.A.</h5>
+                            <p class="card-text text-muted">Dispense teoriche ed esercizi svolti su numeri complessi, fasori, rifasamento e sistemi trifase.</p>
+                            <ul class="list-unstyled small text-muted mb-4">
+                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>PDF di 120 pagine</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i>Esercizi d'esame risolti</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">€9.99</span>
+                                <!-- Sostituisci # con il tuo link Gumroad/Payhip/PayPal -->
+                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-cart-shopping me-1"></i>Acquista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scheda 2: Elettronica -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Elettronica</span>
+                            <h5 class="card-title fw-bold">Amplificatori Operazionali & Filtri</h5>
+                            <p class="card-text text-muted">Guida pratica al calcolo, simulazione LTSpice e realizzazione di filtri attivi e configurazioni base.</p>
+                            <ul class="list-unstyled small text-muted mb-4">
+                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>Dispensa + File LTSpice</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i>Schemi elettrici inclusi</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">€12.50</span>
+                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-cart-shopping me-1"></i>Acquista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scheda 3: TPSEE -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">TPSEE</span>
+                            <h5 class="card-title fw-bold">Progettazione Microcontrollori (Arduino/ESP32)</h5>
+                            <p class="card-text text-muted">Raccolta di progetti completi di schema elettrico, codice C++ commentato e relazione tecnica.</p>
+                            <ul class="list-unstyled small text-muted mb-4">
+                                <li><i class="fa-solid fa-file-code text-warning me-2"></i>Codice sorgente pronto</li>
+                                <li><i class="fa-solid fa-check text-success me-2"></i>Guide passo-passo</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="price-tag">€14.99</span>
+                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-cart-shopping me-1"></i>Acquista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE CHI SONO -->
+    <section id="chi-sono" class="bg-white py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3">Chi Sono</h2>
+            <p class="col-md-8 mx-auto text-muted">
+                Sono un docente ed esperto di Elettrotecnica, Elettronica e TPSEE. Realizzo materiale didattico chiaro, sintetico e strutturato per aiutare studenti e colleghi nell'apprendimento e nell'insegnamento delle materie tecniche.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTATTI -->
+    <footer id="contatti" class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-1">&copy; 2026 Materiale Didattico Elettronica & TPSEE. Tutti i diritti riservati.</p>
+            <p class="small text-muted mb-0">Per info o supporto: <a href="mailto:tuamail@example.com" class="text-white">tuamail@example.com</a></p>
+        </div>
+    </footer>
+
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
