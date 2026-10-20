@@ -3,75 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materiale Didattico | Elettrotecnica, Elettronica, TPSEE & Sistemi</title>
+    <title>Materiale Didattico STEM | Elettrotecnica, Elettronica, TPSEE & Sistemi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0b5ed7;
-            --dark-bg: #1e293b;
+            --bg-main: #fafafa;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --accent-dark: #0f172a;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
         }
-        .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 70px 0;
+
+        /* Navbar Minimal */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
         }
-        .card {
-            border: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-radius: 12px;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .badge-indirizzo {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .badge-classe {
-            background-color: #6c757d;
-            font-size: 0.75rem;
-        }
-        .price-tag {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #198754;
-        }
-        .btn-paypal {
-            background-color: #ffc439;
-            color: #111;
+        .navbar-brand {
             font-weight: 600;
-            border: none;
+            color: var(--text-main) !important;
+            letter-spacing: -0.02em;
         }
-        .btn-paypal:hover {
-            background-color: #f2ba31;
-            color: #000;
-        }
-        .filter-btn {
-            border-radius: 20px;
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-size: 0.9rem;
             font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--text-main) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 90px 0 60px 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero h1 {
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+        .hero p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent-dark);
+            color: #ffffff;
+            border-color: var(--accent-dark);
+        }
+
+        /* Card Minimal */
+        .card-minimal {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s, transform 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-minimal:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .card-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        /* Minimal Badges */
+        .tag-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background-color: #f1f5f9;
+            color: #475569;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .tag-materia {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* List Items */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 24px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+        }
+        .feature-list li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+        .feature-list i {
+            font-size: 0.75rem;
+            margin-right: 8px;
+            color: var(--text-main);
+        }
+
+        /* Price & Button */
+        .price-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .btn-minimal-paypal {
+            background-color: var(--accent-dark);
+            color: #ffffff;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 10px 16px;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-center;
+            transition: background-color 0.2s;
+        }
+        .btn-minimal-paypal:hover {
+            background-color: #334155;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
     <!-- NAVIGAZIONE -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-microchip me-2 text-primary"></i>Didattica STEM</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-microchip me-2"></i>Didattica STEM</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#materiale">Materiale Didattico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#materiale">Materiali</a></li>
                     <li class="nav-item"><a class="nav-link" href="#chi-sono">Chi Sono</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
                 </ul>
@@ -82,251 +197,215 @@
     <!-- HERO SECTION -->
     <header class="hero text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">Materiale Didattico STEM</h1>
-            <p class="lead text-light mb-4">Elettrotecnica, Elettronica, TPSEE e Sistemi suddivisi per Classe (1ª-4ª) e Indirizzo secondo la nuova riforma.</p>
-            <a href="#materiale" class="btn btn-primary btn-lg rounded-pill px-4 me-2"><i class="fa-solid fa-book-open me-2"></i>Esplora per Classe</a>
+            <h1 class="display-5 mb-3">Risorse Didattiche ITI</h1>
+            <p class="mb-0">Dispense, schemi ed esercizi per Elettrotecnica, Elettronica, TPSEE e Sistemi. Suddivisi per classe e indirizzo secondo la nuova riforma.</p>
         </div>
     </header>
 
     <!-- SEZIONE MATERIALE -->
     <section id="materiale" class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold mb-3">Materiale Disponibile</h2>
-            <p class="text-center text-muted mb-4">Filtra per classe per trovare rapidamente il programma e le dispense corrispondenti.</p>
 
-            <!-- PULSANTI FILTRO PER CLASSE -->
+            <!-- FILTRI DI SELEZIONE -->
             <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
-                <button class="btn btn-primary filter-btn active" onclick="filterCards('all')">Tutte le Classi</button>
-                <button class="btn btn-outline-primary filter-btn" onclick="filterCards('classe1')">1ª Classe</button>
-                <button class="btn btn-outline-primary filter-btn" onclick="filterCards('classe2')">2ª Classe</button>
-                <button class="btn btn-outline-primary filter-btn" onclick="filterCards('classe3')">3ª Classe</button>
-                <button class="btn btn-outline-primary filter-btn" onclick="filterCards('classe4')">4ª Classe</button>
+                <button class="filter-btn active" onclick="filterCards('all', this)">Tutte le classi</button>
+                <button class="filter-btn" onclick="filterCards('classe1', this)">1ª Classe</button>
+                <button class="filter-btn" onclick="filterCards('classe2', this)">2ª Classe</button>
+                <button class="filter-btn" onclick="filterCards('classe3', this)">3ª Classe</button>
+                <button class="filter-btn" onclick="filterCards('classe4', this)">4ª Classe</button>
             </div>
 
+            <!-- GRIGLIA PRODOTTI -->
             <div class="row g-4" id="cards-container">
 
-                <!-- 1ª CLASSE - Basi di Fisica, Tecnologia e Scienze Applicate -->
+                <!-- 1ª CLASSE -->
                 <div class="col-md-6 col-lg-4 item-card classe1">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-secondary badge-classe">1ª Classe</span>
-                                <span class="badge bg-info text-dark">Propedeutico</span>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">Fisica Applicata</span>
+                            <span class="tag-badge">1ª Classe</span>
+                        </div>
+                        <h2 class="card-title">Basi di Elettricità & Misure</h2>
+                        <p class="card-text">Legge di Ohm, carica elettrica, circuiti in corrente continua elementari e componenti passivi.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Dispensa teorica in PDF</li>
+                            <li><i class="fa-solid fa-circle"></i> Esercizi svolti e test d'ingresso</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 6,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Basi di Elettricità & Grandezze Fisiche</h5>
-                            <p class="card-text text-muted small">Misure, legge di Ohm, carica elettrica, circuiti elementari in C.C. e introduzione ai componenti passivi.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>Dispense + Esercizi guidati</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Verifiche e test d'ingresso</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€6.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_CLASSE1" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2ª CLASSE - Componenti & Misure -->
+                <!-- 2ª CLASSE -->
                 <div class="col-md-6 col-lg-4 item-card classe2">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-secondary badge-classe">2ª Classe</span>
-                                <span class="badge bg-info text-dark">Propedeutico</span>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">Elettromagnetismo</span>
+                            <span class="tag-badge">2ª Classe</span>
+                        </div>
+                        <h2 class="card-title">Reti in C.C. e Strumentazione</h2>
+                        <p class="card-text">Leggi di Kirchhoff, metodo delle maglie/nodi, campo magnetico e schede di laboratorio.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Guide di laboratorio pronte</li>
+                            <li><i class="fa-solid fa-circle"></i> Esercizi d'esame risolti</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 7,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Elettromagnetismo e Misure Elettriche</h5>
-                            <p class="card-text text-muted small">Leggi di Kirchhoff, metodi di risoluzione delle reti in C.C., campo magnetico e strumentazione di laboratorio.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>Schede di laboratorio</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Esercizi svolti passo-passo</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€7.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_CLASSE2" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3ª CLASSE - ELETTROTECNICA (Indirizzo Elettrotecnica) -->
+                <!-- 3ª CLASSE - ELETTROTECNICA -->
                 <div class="col-md-6 col-lg-4 item-card classe3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-primary">Elettrotecnica</span>
-                                <div>
-                                    <span class="badge bg-secondary badge-classe">3ª Classe</span>
-                                    <span class="badge bg-dark badge-indirizzo">Ind. Elettr.</span>
-                                </div>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">Elettrotecnica</span>
+                            <span class="tag-badge">3ª Classe · Ind. Elettrotecnica</span>
+                        </div>
+                        <h2 class="card-title">Circuiti in C.A. e Trifase</h2>
+                        <p class="card-text">Fasori, numeri complessi, calcolo delle potenze, rifasamento e reti trifase secondo riforma.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Dispensa completa (100+ pag)</li>
+                            <li><i class="fa-solid fa-circle"></i> Temi d'esame e verifiche</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 9,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Circuiti monophase e trifase in C.A.</h5>
-                            <p class="card-text text-muted small">Rappresentazione con fasori, numeri complessi, potenza, rifasamento e reti trifase secondo la nuova riforma.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>Corso teorico completo (100+ pag)</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Raccolta verifiche d'esame</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€9.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_ELETTRO_3" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3ª CLASSE - ELETTRONICA (Indirizzo Elettronica) -->
+                <!-- 3ª CLASSE - ELETTRONICA -->
                 <div class="col-md-6 col-lg-4 item-card classe3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-primary">Elettronica</span>
-                                <div>
-                                    <span class="badge bg-secondary badge-classe">3ª Classe</span>
-                                    <span class="badge bg-dark badge-indirizzo">Ind. Eletr.</span>
-                                </div>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">Elettronica</span>
+                            <span class="tag-badge">3ª Classe · Ind. Elettronica</span>
+                        </div>
+                        <h2 class="card-title">Semiconduttori e Logica Digitale</h2>
+                        <p class="card-text">Diodi, transistor BJT, configurazioni base, logica combinatoria e simulazioni LTSpice.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> File di simulazione inclusi</li>
+                            <li><i class="fa-solid fa-circle"></i> Sintesi e mappe di Karnaugh</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 9,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Diodi, Transistor BJT e Logica Digitale</h5>
-                            <p class="card-text text-muted small">Elettronica analogica di base, semiconduttori, transistor come interruttore e porte logiche combinate.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>Schemi e simulazioni LTSpice</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Esercizi di sintesi logica</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€9.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_ELETTRONICA_3" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3ª CLASSE - SISTEMI AUTOMATICI -->
+                <!-- 3ª CLASSE - SISTEMI -->
                 <div class="col-md-6 col-lg-4 item-card classe3">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-warning text-dark">Sistemi</span>
-                                <div>
-                                    <span class="badge bg-secondary badge-classe">3ª Classe</span>
-                                    <span class="badge bg-secondary badge-indirizzo">Comune</span>
-                                </div>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">Sistemi</span>
+                            <span class="tag-badge">3ª Classe · Comune</span>
+                        </div>
+                        <h2 class="card-title">Numerazione & Condizionamento</h2>
+                        <p class="card-text">Sistemi di numerazione, blocchi di acquisizione dati, operazionali ideali e microcontrollori.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Schemi a blocchi e algoritmi</li>
+                            <li><i class="fa-solid fa-circle"></i> Esercizi pratici risolti</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 8,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Sistemi di Numerazione & Algoritmi</h5>
-                            <p class="card-text text-muted small">Algebra di Boole, mappe di Karnaugh, blocchi di condizionamento del segnale e architettura dei microcontrollori.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-code text-warning me-2"></i>Sintesi combinatoria & Mappa K</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Esercizi risolti</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€8.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_SISTEMI_3" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4ª CLASSE - SISTEMI AUTOMATICI & CONTROLLO -->
+                <!-- 4ª CLASSE - SISTEMI -->
                 <div class="col-md-6 col-lg-4 item-card classe4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-warning text-dark">Sistemi</span>
-                                <div>
-                                    <span class="badge bg-secondary badge-classe">4ª Classe</span>
-                                    <span class="badge bg-dark badge-indirizzo">Elettrotecn. / Elettr.</span>
-                                </div>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">Sistemi</span>
+                            <span class="tag-badge">4ª Classe · Indirizzo Entrambi</span>
+                        </div>
+                        <h2 class="card-title">Retroazione e Trasformata di Laplace</h2>
+                        <p class="card-text">Analisi nel dominio di Laplace, funzioni di trasferimento, stabilità e diagrammi di Bode.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Guida teorica e formulario</li>
+                            <li><i class="fa-solid fa-circle"></i> Problemi svolti passo-passo</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 11,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Sistemi a Retroazione & Trasformata di Laplace</h5>
-                            <p class="card-text text-muted small">Funzioni di trasferimento, stabilità dei sistemi, diagrammi di Bode e risposta in frequenza.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-pdf text-danger me-2"></i>Guida a Laplace e Bode</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Esercizi di analisi e sintesi</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€11.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_SISTEMI_4" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4ª CLASSE - TPSEE (Indirizzo Elettrotecnica) -->
+                <!-- 4ª CLASSE - TPSEE (ELETTROTECNICA) -->
                 <div class="col-md-6 col-lg-4 item-card classe4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-success">TPSEE</span>
-                                <div>
-                                    <span class="badge bg-secondary badge-classe">4ª Classe</span>
-                                    <span class="badge bg-dark badge-indirizzo">Ind. Elettrotecnica</span>
-                                </div>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">TPSEE</span>
+                            <span class="tag-badge">4ª Classe · Ind. Elettrotecnica</span>
+                        </div>
+                        <h2 class="card-title">Quadri Elettrici & PLC</h2>
+                        <p class="card-text">Dimensionamento impianti, normativa CEI 64-8, schemi unifilari e programmazione Ladder per PLC.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Schemi CAD e progetti tipo</li>
+                            <li><i class="fa-solid fa-circle"></i> Esercizi di automazione</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 13,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Quadri Elettrici & Programmazione PLC</h5>
-                            <p class="card-text text-muted small">Dimensionamento conduttori, sicurezza CEI 64-8, schemi unifilari e linguaggio Ladder per PLC.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-lines text-warning me-2"></i>Progetti CAD e schemi elettrici</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Esercizi d'esame svolti</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€13.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_TPSEE_ELETTRO_4" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4ª CLASSE - TPSEE (Indirizzo Elettronica) -->
+                <!-- 4ª CLASSE - TPSEE (ELETTRONICA) -->
                 <div class="col-md-6 col-lg-4 item-card classe4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-success">TPSEE</span>
-                                <div>
-                                    <span class="badge bg-secondary badge-classe">4ª Classe</span>
-                                    <span class="badge bg-dark badge-indirizzo">Ind. Elettronica</span>
-                                </div>
+                    <div class="card-minimal">
+                        <div>
+                            <span class="tag-badge tag-materia">TPSEE</span>
+                            <span class="tag-badge">4ª Classe · Ind. Elettronica</span>
+                        </div>
+                        <h2 class="card-title">Progettazione PCB & Embedded</h2>
+                        <p class="card-text">Sbrigliamento PCB (KiCad/EasyEDA), microcontrollori Arduino/ESP32 e firmware in C++.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-circle"></i> Sorgenti C++ e gerber PCB</li>
+                            <li><i class="fa-solid fa-circle"></i> Relazioni tecniche pronte</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="price-text">€ 13,99</span>
                             </div>
-                            <h5 class="card-title fw-bold">Progettazione PCB & Firmware Arduino/ESP32</h5>
-                            <p class="card-text text-muted small">Sbrigliamento circuito stampato (KiCad/EasyEDA), sensori, attuatori e codice C++ commentato.</p>
-                            <ul class="list-unstyled small text-muted mb-4">
-                                <li><i class="fa-solid fa-file-code text-warning me-2"></i>Codici C++ + Progetti PCB</li>
-                                <li><i class="fa-solid fa-check text-success me-2"></i>Relazioni di laboratorio pronte</li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="price-tag">€13.99</span>
-                                </div>
-                                <a href="INSERISCI_LINK_PAYPAL_TPSEE_ELETTRONICA_4" target="_blank" class="btn btn-paypal w-100 btn-sm">
-                                    <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
-                                </a>
-                            </div>
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -336,36 +415,33 @@
     </section>
 
     <!-- SEZIONE CHI SONO -->
-    <section id="chi-sono" class="bg-white py-5">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-3">Chi Sono</h2>
-            <p class="col-md-8 mx-auto text-muted">
-                Sono un docente ed esperto delle materie tecniche STEM (Elettrotecnica, Elettronica, TPSEE e Sistemi). Realizzo materiale didattico aggiornato alle più recenti riforme scolastiche per supportare studenti e docenti del primo e secondo biennio degli Istituti Tecnici Industriali.
+    <section id="chi-sono" class="py-5" style="background-color: #ffffff; border-top: 1px solid var(--border-color);">
+        <div class="container text-center py-4">
+            <h2 class="fw-bold mb-3" style="font-size: 1.5rem;">Chi Sono</h2>
+            <p class="col-md-7 mx-auto text-muted" style="font-size: 0.95rem;">
+                Sono un docente delle discipline STEM negli Istituti Tecnici Industriali. Sviluppo materiale didattico sintetico, chiaro e aggiornato per supportare sia l'apprendimento degli studenti che l'attività didattica dei colleghi.
             </p>
         </div>
     </section>
 
-    <!-- FOOTER / CONTATTI -->
-    <footer id="contatti" class="bg-dark text-white py-4 text-center">
+    <!-- FOOTER -->
+    <footer id="contatti" class="py-4 text-center">
         <div class="container">
-            <p class="mb-1">&copy; 2026 Materiale Didattico STEM. Tutti i diritti riservati.</p>
-            <p class="small text-muted mb-0">Per info o supporto acquisti: <a href="mailto:tuamail@example.com" class="text-white">tuamail@example.com</a></p>
+            <p class="mb-1">© 2026 Materiale Didattico STEM. Tutti i diritti riservati.</p>
+            <p class="mb-0">Contatto e supporto: <a href="mailto:tuamail@example.com" class="text-dark">tuamail@example.com</a></p>
         </div>
     </footer>
 
-    <!-- Script Bootstrap & JS per i Filtri -->
+    <!-- JS Filtri -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        function filterCards(className) {
-            // Aggiorna stile dei pulsanti
+        function filterCards(className, btnElement) {
+            // Aggiorna classe attiva sui pulsanti
             const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active', 'btn-primary'));
-            buttons.forEach(btn => btn.classList.add('btn-outline-primary'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
 
-            event.target.classList.remove('btn-outline-primary');
-            event.target.classList.add('btn-primary', 'active');
-
-            // Filtra le schede
+            // Mostra / nascondi le card
             const cards = document.querySelectorAll('.item-card');
             cards.forEach(card => {
                 if (className === 'all' || card.classList.contains(className)) {
