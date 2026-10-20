@@ -45,7 +45,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 90px 0 60px 0;
+            padding: 80px 0 50px 0;
             background-color: #ffffff;
             border-bottom: 1px solid var(--border-color);
         }
@@ -58,7 +58,7 @@
             color: var(--text-muted);
             max-width: 650px;
             margin: 0 auto;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         /* Filter Buttons */
@@ -83,20 +83,54 @@
             background: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
             transition: border-color 0.2s, transform 0.2s;
             height: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
         .card-minimal:hover {
             border-color: #cbd5e1;
             transform: translateY(-2px);
         }
+
+        /* Box Anteprima Immagine */
+        .preview-box {
+            width: 100%;
+            height: 160px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .card-minimal:hover .preview-box img {
+            transform: scale(1.03);
+        }
+        .preview-placeholder {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
         .card-title {
             font-size: 1.1rem;
             font-weight: 600;
-            margin-top: 12px;
+            margin-top: 10px;
             margin-bottom: 8px;
             letter-spacing: -0.01em;
         }
@@ -123,11 +157,11 @@
             color: #0f172a;
         }
 
-        /* List Items */
+        /* Feature List */
         .feature-list {
             list-style: none;
             padding: 0;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-size: 0.83rem;
             color: var(--text-muted);
         }
@@ -142,7 +176,7 @@
             color: var(--text-main);
         }
 
-        /* Price & Button */
+        /* Price & Buttons */
         .price-text {
             font-size: 1.2rem;
             font-weight: 700;
@@ -154,16 +188,26 @@
             border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 500;
-            padding: 10px 16px;
+            padding: 9px 14px;
             width: 100%;
             text-decoration: none;
             display: inline-block;
-            text-center;
+            text-align: center;
             transition: background-color 0.2s;
         }
         .btn-minimal-paypal:hover {
             background-color: #334155;
             color: #ffffff;
+        }
+        .btn-preview-link {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .btn-preview-link:hover {
+            color: var(--text-main);
         }
 
         /* Footer */
@@ -221,6 +265,15 @@
                 <!-- 1ª CLASSE -->
                 <div class="col-md-6 col-lg-4 item-card classe1">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <!-- Se hai un'immagine inserisci: <img src="anteprima1.png" alt="Anteprima"> -->
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">Fisica Applicata</span>
                             <span class="tag-badge">1ª Classe</span>
@@ -234,8 +287,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 6,99</span>
+                                <a href="anteprima-classe1.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -245,6 +301,14 @@
                 <!-- 2ª CLASSE -->
                 <div class="col-md-6 col-lg-4 item-card classe2">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">Elettromagnetismo</span>
                             <span class="tag-badge">2ª Classe</span>
@@ -258,8 +322,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 7,99</span>
+                                <a href="anteprima-classe2.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -269,6 +336,14 @@
                 <!-- 3ª CLASSE - ELETTROTECNICA -->
                 <div class="col-md-6 col-lg-4 item-card classe3">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">Elettrotecnica</span>
                             <span class="tag-badge">3ª Classe · Ind. Elettrotecnica</span>
@@ -282,8 +357,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 9,99</span>
+                                <a href="anteprima-elettro3.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -293,6 +371,14 @@
                 <!-- 3ª CLASSE - ELETTRONICA -->
                 <div class="col-md-6 col-lg-4 item-card classe3">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">Elettronica</span>
                             <span class="tag-badge">3ª Classe · Ind. Elettronica</span>
@@ -306,8 +392,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 9,99</span>
+                                <a href="anteprima-elettronica3.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -317,6 +406,14 @@
                 <!-- 3ª CLASSE - SISTEMI -->
                 <div class="col-md-6 col-lg-4 item-card classe3">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">Sistemi</span>
                             <span class="tag-badge">3ª Classe · Comune</span>
@@ -330,8 +427,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 8,99</span>
+                                <a href="anteprima-sistemi3.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -341,6 +441,14 @@
                 <!-- 4ª CLASSE - SISTEMI -->
                 <div class="col-md-6 col-lg-4 item-card classe4">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">Sistemi</span>
                             <span class="tag-badge">4ª Classe · Indirizzo Entrambi</span>
@@ -354,8 +462,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 11,99</span>
+                                <a href="anteprima-sistemi4.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -365,6 +476,14 @@
                 <!-- 4ª CLASSE - TPSEE (ELETTROTECNICA) -->
                 <div class="col-md-6 col-lg-4 item-card classe4">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">TPSEE</span>
                             <span class="tag-badge">4ª Classe · Ind. Elettrotecnica</span>
@@ -378,8 +497,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 13,99</span>
+                                <a href="anteprima-tpsee-elettro4.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -389,6 +511,14 @@
                 <!-- 4ª CLASSE - TPSEE (ELETTRONICA) -->
                 <div class="col-md-6 col-lg-4 item-card classe4">
                     <div class="card-minimal">
+                        <!-- ANTEPRIMA VISIVA -->
+                        <div class="preview-box">
+                            <div class="preview-placeholder">
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+                                <span>Anteprima Dispensa</span>
+                            </div>
+                        </div>
+
                         <div>
                             <span class="tag-badge tag-materia">TPSEE</span>
                             <span class="tag-badge">4ª Classe · Ind. Elettronica</span>
@@ -402,8 +532,11 @@
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="price-text">€ 13,99</span>
+                                <a href="anteprima-tpsee-elettronica4.pdf" target="_blank" class="btn-preview-link">
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+                                </a>
                             </div>
-                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal text-center">
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
                                 <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
                             </a>
                         </div>
@@ -436,12 +569,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         function filterCards(className, btnElement) {
-            // Aggiorna classe attiva sui pulsanti
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
 
-            // Mostra / nascondi le card
             const cards = document.querySelectorAll('.item-card');
             cards.forEach(card => {
                 if (className === 'all' || card.classList.contains(className)) {
