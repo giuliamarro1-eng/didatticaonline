@@ -1,241 +1,211 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Didattica Online - Giulia Marro</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* Sfondo beige chiaro per l'intero sito */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fcfaf7; /* Beige chiaro caldo */
-            color: #2c2a29;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
 
-        /* Card minimal adattate sullo sfondo beige */
-        .card-minimal {
-            background-color: #ffffff;
-            border: 1px solid #efe8de;
-            border-radius: 14px;
-            padding: 1.5rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        }
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
 
-        .card-minimal:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
 
-        /* Anteprima visiva box */
-        .preview-box {
-            background-color: #f7f3ed;
-            border-radius: 8px;
-            padding: 2rem 1rem;
-            text-align: center;
-            margin-bottom: 1.25rem;
-            border: 1px dashed #dcd3c5;
-        }
+                            </a>
 
-        .preview-placeholder {
-            color: #8c8275;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-        }
+                        </div>
 
-        /* Badges e Tag */
-        .tag-badge {
-            display: inline-block;
-            background-color: #f0eae1;
-            color: #595248;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.6rem;
-            border-radius: 20px;
-            margin-bottom: 0.5rem;
-            margin-right: 0.25rem;
-        }
+                    </div>
 
-        .tag-materia {
-            background-color: #e8dbce;
-            color: #4a3b2c;
-        }
+                </div>
 
-        .badge-coming-soon {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeeba;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
 
-        /* Tipografia card */
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1a1918;
-            margin-top: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
 
-        .card-text {
-            font-size: 0.9rem;
-            color: #5c554e;
-            margin-bottom: 1rem;
-        }
+                <!-- 2ª CLASSE -->
 
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-            font-size: 0.85rem;
-            color: #4a443e;
-            margin-bottom: 1.5rem;
-        }
+                <div class="col-md-6 col-lg-4 item-card classe2">
 
-        .feature-list li {
-            margin-bottom: 0.4rem;
-        }
+                    <div class="card-minimal">
 
-        .feature-list li i {
-            font-size: 0.4rem;
-            vertical-align: middle;
-            margin-right: 0.5rem;
-            color: #b0a08e;
-        }
+                        <!-- ANTEPRIMA VISIVA -->
 
-        .price-text {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #2c2a29;
-        }
+                        <div class="preview-box">
 
-        /* Bottoni */
-        .btn-preview-link {
-            color: #786c5e;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
+                            <div class="preview-placeholder">
 
-        .btn-preview-link:hover {
-            color: #2c2a29;
-        }
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
 
-        .btn-minimal-paypal {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: #0070ba;
-            color: #ffffff;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.2s ease;
-        }
+                                <span>Anteprima Dispensa</span>
 
-        .btn-minimal-paypal:hover {
-            background-color: #005ea6;
-            color: #ffffff;
-        }
+                            </div>
 
-        .btn-disabled {
-            background-color: #e2dbd0 !important;
-            color: #8c8275 !important;
-            cursor: not-allowed;
-            pointer-events: none;
-            border: none;
-        }
+                        </div>
 
-        /* Banner Avviso in Arrivo */
-        .banner-in-arrivo {
-            background-color: #fff9f0;
-            border: 1px solid #f2e2ce;
-            border-left: 5px solid #d99b26;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
 
-        /* Sezione Newsletter Form */
-        .newsletter-card {
-            background-color: #f2ebe1;
-            border: 1px solid #e2d7c7;
-            border-radius: 14px;
-            padding: 2rem;
-        }
-    </style>
-</head>
-<body>
 
-    <main class="container py-5">
+                        <div>
 
-        <!-- TESTATA SITO -->
-        <div class="text-center mb-5">
-            <h1 class="fw-bold display-5">Materiale Didattico</h1>
-            <p class="text-muted">Dispense, schemi e guide di laboratorio per le scuole secondarie superiori</p>
-        </div>
+                            <span class="tag-badge tag-materia">Elettromagnetismo</span>
 
-        <!-- BANNER MATERIALE IN ARRIVO -->
-        <div class="banner-in-arrivo d-flex align-items-center gap-3 shadow-sm">
-            <div class="fs-1 color-warning text-warning">
-                <i class="fa-solid fa-hourglass-half"></i>
-            </div>
-            <div>
-                <h4 class="fw-bold mb-1" style="color: #8a600c;">Materiale in fase di preparazione!</h4>
-                <p class="mb-0 text-secondary" style="font-size: 0.95rem;">
-                    Sto completando la stesura delle dispense e dei temi d'esame svolti. A breve tutti i volumi saranno acquistabili direttamente tramite i link PayPal sottostanti. 
-                    Puoi consultare gli estratti in anteprima o iscriverti per ricevere una notifica all'uscita.
-                </p>
-            </div>
-        </div>
+                            <span class="tag-badge">2ª Classe</span>
 
-        <!-- GRIGLIA CARDS PRODOTTI -->
-        <div class="row g-4 mb-5">
+                        </div>
 
-            <!-- 2ª CLASSE -->
-            <div class="col-md-6 col-lg-4 item-card classe2">
-                <div class="card-minimal">
-                    <span class="badge-coming-soon align-self-start"><i class="fa-regular fa-clock me-1"></i>In Arrivo</span>
+                        <h2 class="card-title">Reti in C.C. e Strumentazione</h2>
 
-                    <!-- ANTEPRIMA VISIVA -->
-                    <div class="preview-box">
-                        <div class="preview-placeholder">
-                            <i class="fa-regular fa-file-pdf fa-2x"></i>
-                            <span>Anteprima Dispensa</span>
-                        </div>
-                    </div>
+                        <p class="card-text">Leggi di Kirchhoff, metodo delle maglie/nodi, campo magnetico e schede di laboratorio.</p>
 
-                    <div>
-                        <span class="tag-badge tag-materia">Elettromagnetismo</span>
-                        <span class="tag-badge">2ª Classe</span>
-                    </div>
-                    <h2 class="card-title">Reti in C.C. e Strumentazione</h2>
-                    <p class="card-text">Leggi di Kirchhoff, metodo delle maglie/nodi, campo magnetico e schede di laboratorio.</p>
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-circle"></i> Guide di laboratorio pronte</li>
-                        <li><i class="fa-solid fa-circle"></i> Esercizi d'esame risolti</li>
-                    </ul>
-                    <div class="mt-auto">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="price-text">€ 7,99</span>
-                            <a href="anteprima-classe2.pdf" target="_blank" class="
+                        <ul class="feature-list">
+
+                            <li><i class="fa-solid fa-circle"></i> Guide di laboratorio pronte</li>
+
+                            <li><i class="fa-solid fa-circle"></i> Esercizi d'esame risolti</li>
+
+                        </ul>
+
+                        <div class="mt-auto">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                <span class="price-text">€ 7,99</span>
+
+                                <a href="anteprima-classe2.pdf" target="_blank" class="btn-preview-link">
+
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+
+                                </a>
+
+                            </div>
+
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
+
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 3ª CLASSE - ELETTROTECNICA -->
+
+                <div class="col-md-6 col-lg-4 item-card classe3">
+
+                    <div class="card-minimal">
+
+                        <!-- ANTEPRIMA VISIVA -->
+
+                        <div class="preview-box">
+
+                            <div class="preview-placeholder">
+
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+
+                                <span>Anteprima Dispensa</span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <span class="tag-badge tag-materia">Elettrotecnica</span>
+
+                            <span class="tag-badge">3ª Classe · Ind. Elettrotecnica</span>
+
+                        </div>
+
+                        <h2 class="card-title">Circuiti in C.A. e Trifase</h2>
+
+                        <p class="card-text">Fasori, numeri complessi, calcolo delle potenze, rifasamento e reti trifase secondo riforma.</p>
+
+                        <ul class="feature-list">
+
+                            <li><i class="fa-solid fa-circle"></i> Dispensa completa (100+ pag)</li>
+
+                            <li><i class="fa-solid fa-circle"></i> Temi d'esame e verifiche</li>
+
+                        </ul>
+
+                        <div class="mt-auto">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                <span class="price-text">€ 9,99</span>
+
+                                <a href="anteprima-elettro3.pdf" target="_blank" class="btn-preview-link">
+
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+
+                                </a>
+
+                            </div>
+
+                            <a href="INSERISCI_LINK_PAYPAL" target="_blank" class="btn-minimal-paypal">
+
+                                <i class="fa-brands fa-paypal me-2"></i>Acquista con PayPal
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 3ª CLASSE - ELETTRONICA -->
+
+                <div class="col-md-6 col-lg-4 item-card classe3">
+
+                    <div class="card-minimal">
+
+                        <!-- ANTEPRIMA VISIVA -->
+
+                        <div class="preview-box">
+
+                            <div class="preview-placeholder">
+
+                                <i class="fa-regular fa-file-pdf fa-2x"></i>
+
+                                <span>Anteprima Dispensa</span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <span class="tag-badge tag-materia">Elettronica</span>
+
+                            <span class="tag-badge">3ª Classe · Ind. Elettronica</span>
+
+                        </div>
+
+                        <h2 class="card-title">Semiconduttori e Logica Digitale</h2>
+
+                        <p class="card-text">Diodi, transistor BJT, configurazioni base, logica combinatoria e simulazioni LTSpice.</p>
+
+                        <ul class="feature-list">
+
+                            <li><i class="fa-solid fa-circle"></i> File di simulazione inclusi</li>
+
+                            <li><i class="fa-solid fa-circle"></i> Sintesi e mappe di Karnaugh</li>
+
+                        </ul>
+
+                        <div class="mt-auto">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                <span class="price-text">€ 9,99</span>
+
+                                <a href="anteprima-elettronica3.pdf" target="_blank" class="btn-preview-link">
+
+                                    <i class="fa-solid fa-eye me-1"></i>Vedi estratto
+
+                                </a>
+
+                            </div> 
