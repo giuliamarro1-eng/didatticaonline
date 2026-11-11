@@ -3,89 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Didattica Online - Giulia Marro</title>
+    <title>Materiale didattico per istituti tecnici</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        :root {
+            --bg-linen: #EFECE6;
+            --bg-card: #FFFFFF;
+            --text-main: #2C2A29;
+            --text-muted: #6E6B68;
+            --border-color: #DCD7CD;
+            --accent-color: #4A4541;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #333333;
+            background-color: var(--bg-linen);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-linen);
         }
 
         .card-minimal {
-            background-color: #ffffff;
-            border: 1px solid #eaeaea;
-            border-radius: 12px;
-            padding: 1.5rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1.75rem;
             height: 100%;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            transition: box-shadow 0.2s ease;
         }
 
         .card-minimal:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(44, 42, 41, 0.05);
         }
 
-        .preview-box {
-            background-color: #f1f3f5;
-            border-radius: 8px;
-            padding: 2rem 1rem;
-            text-align: center;
-            margin-bottom: 1.25rem;
-        }
-
-        .preview-placeholder {
-            color: #6c757d;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
+        .badge-incoming {
+            background-color: #DFD7CD;
+            color: var(--text-main);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.6rem;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
         }
 
         .tag-badge {
             display: inline-block;
-            background-color: #e9ecef;
-            color: #495057;
+            background-color: #F4F1EA;
+            color: var(--accent-color);
             font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.6rem;
-            border-radius: 20px;
+            font-weight: 500;
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
             margin-bottom: 0.5rem;
             margin-right: 0.25rem;
-        }
-
-        .tag-materia {
-            background-color: #e3f2fd;
-            color: #0d6efd;
+            border: 1px solid var(--border-color);
         }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #212529;
-            margin-top: 0.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .card-text {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
         }
 
         .feature-list {
             list-style: none;
             padding-left: 0;
-            font-size: 0.85rem;
-            color: #495057;
+            font-size: 0.825rem;
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
         }
 
         .feature-list li {
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .btn-minimal {
+            background-color: var(--text-main);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            padding: 0.6rem 1rem;
+            transition: background-color 0.2s;
+            margin-top: auto;
+        }
+
+        .btn-minimal:hover {
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+        }
+
+        .btn-outline-minimal {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-outline-minimal:hover {
+            border-color: var(--text-main);
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        .form-control, .form-select {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+            border-radius: 2px;
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: var(--bg-card);
+            border-color: var(--text-main);
+            box-shadow: none;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            background-color: #E8E3DA;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: auto;
+            padding: 2rem 0;
+        }
+
+        .banner-container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="py-3 px-4 mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+        <span class="fw-semibold tracking-wide text-uppercase" style="font-size: 0.85rem; letter-spacing: 0.05em;">Riforma Filiera Tecnologico-Professionale</span>
+        <button class="btn btn-outline-minimal position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+            <i class="fa-solid fa-bag-shopping me-1"></i> Carrello
+            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" style="font-size: 0.65rem;">0</span>
+        </button>
+    </div>
+</header>
+
+<div class="container pb-5">
+    <!-- Hero Section -->
+    <section class="text-center py-4 mb-5">
+        <h1 class="fw-normal display-6 mb-2">Materiale didattico per istituti tecnici</h1>
+        <p class="text-muted" style="font-size: 0.95rem;">Risorse aggiornate per Elettronica, Elettrotecnica e TPSEE — Indirizzi Elettronico ed Elettrotecnico</p>
+    </section>
+
+    <!-- Filters & Search Toolbar -->
+    <div class="row g-2 mb-5">
+        <div class="col-md-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Cerca argomento o disciplina...">
+        </div>
+        <div class="col-md-3">
+            <select id="filterClasse" class="form-select">
+                <option value="">Tutte le classi</option>
+                <option value="1">Classe 1ª</option>
+                <option value="2">Classe 2ª</option>
+                <option value="3">Classe 3ª</option>
+                <option value="4">Classe 4ª</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select id="filterMateria" class="form-select">
+                <option value="">Tutte le materie</option>
+                <option value="Elettronica">Elettronica</option>
+                <option value="Elettrotecnica">Elettrotecnica</option>
+                <option value="TPSEE">TPSEE</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-outline-minimal w-100" id="resetFilters">Reset</button>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="row g-4" id="productsGrid">
+        
+        <!-- Prodotto 1 -->
+        <div class="col-md-6 col-lg-4 product-item" data-classe="1" data-materia="Elettronica" data-title="Fondamenti di Elettronica Analogica">
+            <div class="card-minimal">
+                <div>
+                    <span class="badge-incoming">In arrivo</span>
+                    <div>
+                        <span class="tag-badge">Elettronica</span>
+                        <span class="tag-badge">Classe 1ª</span>
+                    </div>
+                </div>
+                <h3 class="card-title">Fondamenti di Elettronica Analogica</h3>
+                <p class="card-text">Dispense teoriche ed esercizi guidati sui componenti passivi e circuiti resistivi fondamentali.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-file-lines text-muted"></i> Dispense teoriche complete</li>
+                    <li><i class="fa-regular fa-pen-to-square text-muted"></i> Esercizi guidati e proposti</li>
+                </ul>
+                <div class="price-tag">€ 14,90</div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-minimal flex-grow-1" onclick="openPreview('Fondamenti di Elettronica Analogica', 'Classe 1ª', 'Elettronica', 'Dispense ed esercizi sui componenti passivi, leggi di Ohm e Kirchhoff, partitori di tensione e corrente con risoluzione guidata.')">Anteprima</button>
+                    <button class="btn btn-minimal flex-grow-1" onclick="addToCart('Fondamenti di Elettronica Analogica', 14.90)">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prodotto 2 -->
+        <div class="col-md-6 col-lg-4 product-item" data-classe="2" data-materia="Elettrotecnica" data-title="Circuiti in Corrente Continua e Alternata">
+            <div class="card-minimal">
+                <div>
+                    <span class="badge-incoming">In arrivo</span>
+                    <div>
+                        <span class="tag-badge">Elettrotecnica</span>
+                        <span class="tag-badge">Classe 2ª</span>
+                    </div>
+                </div>
+                <h3 class="card-title">Circuiti in Corrente Continua e Alternata</h3>
+                <p class="card-text">Raccolta di dispense ed esercizi operativi sullo studio dei regimi stazionario e sinusoidale.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-file-lines text-muted"></i> Dispense teoriche complete</li>
+                    <li><i class="fa-regular fa-pen-to-square text-muted"></i> Esercizi guidati e proposti</li>
+                </ul>
+                <div class="price-tag">€ 16,90</div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-minimal flex-grow-1" onclick="openPreview('Circuiti in Corrente Continua e Alternata', 'Classe 2ª', 'Elettrotecnica', 'Materiale di studio approfondito sui sistemi trifase simmetrici e bilanciati, potenze e rifasamento.')">Anteprima</button>
+                    <button class="btn btn-minimal flex-grow-1" onclick="addToCart('Circuiti in Corrente Continua e Alternata', 16.90)">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prodotto 3 -->
+        <div class="col-md-6 col-lg-4 product-item" data-classe="3" data-materia="Elettronica" data-title="Elettronica dei Sistemi Digitali">
+            <div class="card-minimal">
+                <div>
+                    <span class="badge-incoming">In arrivo</span>
+                    <div>
+                        <span class="tag-badge">Elettronica</span>
+                        <span class="tag-badge">Classe 3ª</span>
+                    </div>
+                </div>
+                <h3 class="card-title">Elettronica dei Sistemi Digitali</h3>
+                <p class="card-text">Dispense ed esercizi su algebra di Boole, porte logiche e circuiti combinatori integrati.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-file-lines text-muted"></i> Dispense teoriche complete</li>
+                    <li><i class="fa-regular fa-pen-to-square text-muted"></i> Esercizi guidati e proposti</li>
+                </ul>
+                <div class="price-tag">€ 18,90</div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-minimal flex-grow-1" onclick="openPreview('Elettronica dei Sistemi Digitali', 'Classe 3ª', 'Elettronica', 'Analisi delle reti logiche combinatorie e sequenziali, mappe di Karnaugh e applicazioni pratiche.')">Anteprima</button>
+                    <button class="btn btn-minimal flex-grow-1" onclick="addToCart('Elettronica dei Sistemi Digitali', 18.90)">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prodotto 4 -->
+        <div class="col-md-6 col-lg-4 product-item" data-classe="3" data-materia="Elettrotecnica" data-title="Macchine Elettriche Statiche e Dinamiche">
+            <div class="card-minimal">
+                <div>
+                    <span class="badge-incoming">In arrivo</span>
+                    <div>
+                        <span class="tag-badge">Elettrotecnica</span>
+                        <span class="tag-badge">Classe 3ª</span>
+                    </div>
+                </div>
+                <h3 class="card-title">Macchine Elettriche Statiche e Dinamiche</h3>
+                <p class="card-text">Dispense ed esercizi dedicati al trasformatore, ai motori asincroni e alle macchine a corrente continua.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-file-lines text-muted"></i> Dispense teoriche complete</li>
+                    <li><i class="fa-regular fa-pen-to-square text-muted"></i> Esercizi guidati e proposti</li>
+                </ul>
+                <div class="price-tag">€ 19,90</div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-minimal flex-grow-1" onclick="openPreview('Macchine Elettriche Statiche e Dinamiche', 'Classe 3ª', 'Elettrotecnica', 'Principi di funzionamento, circuiti equivalenti e prove caratteristiche su trasformatori e motori elettrici.')">Anteprima</button>
+                    <button class="btn btn-minimal flex-grow-1" onclick="addToCart('Macchine Elettriche Statiche e Dinamiche', 19.90)">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prodotto 5 -->
+        <div class="col-md-6 col-lg-4 product-item" data-classe="4" data-materia="TPSEE" data-title="Impianti Elettrici e Sicurezza (TPSEE)">
+            <div class="card-minimal">
+                <div>
+                    <span class="badge-incoming">In arrivo</span>
+                    <div>
+                        <span class="tag-badge">TPSEE</span>
+                        <span class="tag-badge">Classe 4ª</span>
+                    </div>
+                </div>
+                <h3 class="card-title">Impianti Elettrici e Sicurezza</h3>
+                <p class="card-text">Dispense ed esercizi su progettazione di impianti BT, protezione contro i contatti e normazione CEI.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-file-lines text-muted"></i> Dispense teoriche complete</li>
+                    <li><i class="fa-regular fa-pen-to-square text-muted"></i> Esercizi guidati e proposti</li>
+                </ul>
+                <div class="price-tag">€ 22,90</div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-minimal flex-grow-1" onclick="openPreview('Impianti Elettrici e Sicurezza', 'Classe 4ª', 'TPSEE', 'Criteri di dimensionamento delle linee, scelta delle protezioni e analisi dei sistemi di terra secondo le norme vigenti.')">Anteprima</button>
+                    <button class="btn btn-minimal flex-grow-1" onclick="addToCart('Impianti Elettrici e Sicurezza', 22.90)">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prodotto 6 -->
+        <div class="col-md-6 col-lg-4 product-item" data-classe="4" data-materia="Elettronica" data-title="Microcontrollori e Sistemi Embedded">
+            <div class="card-minimal">
+                <div>
+                    <span class="badge-incoming">In arrivo</span>
+                    <div>
+                        <span class="tag-badge">Elettronica</span>
+                        <span class="tag-badge">Classe 4ª</span>
+                    </div>
+                </div>
+                <h3 class="card-title">Microcontrollori e Sistemi Embedded</h3>
+                <p class="card-text">Dispense ed esercizi sullo sviluppo software e interfacciamento hardware per architetture a microcontrollore.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-file-lines text-muted"></i> Dispense teoriche complete</li>
+                    <li><i class="fa-regular fa-pen-to-square text-muted"></i> Esercizi guidati e proposti</li>
+                </ul>
+                <div class="price-tag">€ 24,90</div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-minimal flex-grow-1" onclick="openPreview('Microcontrollori e Sistemi Embedded', 'Classe 4ª', 'Elettronica', 'Programmazione base, gestione di GPIO, interruzioni, periferiche di comunicazione e sensori.')">Anteprima</button>
+                    <button class="btn btn-minimal flex-grow-1" onclick="addToCart('Microcontrollori e Sistemi Embedded', 24.90)">Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Banner Pubblicitari Partner Section -->
+    <section class="mt-5 pt-4">
+        <h2 class="h6 text-uppercase text-muted mb-3" style="letter-spacing: 0.05em;">Risorse Consigliate per la Formazione</h2>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="banner-container">
+                    <div id="lezione-online-banner-173387"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="banner-container">
+                    <div id="lezione-online-banner-301750"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="banner-container">
+                    <div id="lezione-online-banner-210869"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-4">
+    <div class="container">
+        <p class="mb-0">Materiale didattico conforme alle linee guida della Riforma degli Istituti Tecnici.</p>
+    </div>
+</footer>
+
+<!-- Offcanvas Cart -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fs-6 fw-semibold" id="cartOffcanvasLabel">Carrello Acquisti</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+        <div id="cartItemsList" class="flex-grow-1 overflow-auto mb-3">
+            <p class="text-muted text-center py-4" style="font-size: 0.875rem;">Il carrello è vuoto.</p>
+        </div>
+        <div class="border-top pt-3">
+            <div class="d-flex justify-content-between mb-3 fw-semibold">
+                <span>Totale:</span>
+                <span id="cartTotal">€ 0,00</span>
+            </div>
+            <button class="btn btn-minimal w-100" onclick="checkout()">Procedi all'ordine</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Preview -->
+<div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-1" style="background-color: var(--bg-card);">
+            <div class="modal-header border-bottom">
+                <h5 class="modal-title fs-6 fw-semibold" id="previewModalLabel">Anteprima Materiale</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
