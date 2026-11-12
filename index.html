@@ -497,12 +497,10 @@
 <script>
     // =========================================================================
     // CONFIGURAZIONE CONTO PAYPAL PER IL CARRELLO ACQUISTI
-    // Questo collegamento riguarda ESCLUSIVAMENTE i materiali aggiunti al carrello
-    // (i banner informativi in basso sono completamente indipendenti).
-    //
-    // 1. Inserisci l'indirizzo email del tuo conto PayPal Business/Personale:
+    // Dato che il sito è ora pubblicato su GitHub Pages, inserisci qui sotto 
+    // la tua vera email PayPal (es. 'tua-email@gmail.com') per ricevere i pagamenti.
+    // =========================================================================
     const PAYPAL_BUSINESS_EMAIL = 'tuo-indirizzo@paypal.it';
-    // 2. (Opzionale) Per gli Smart Buttons integrati, inserisci il Client ID Live:
     const PAYPAL_CLIENT_ID = 'sb'; 
     // =========================================================================
 
@@ -596,21 +594,23 @@
         const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
         const itemNames = cart.map(item => item.title).join(', ');
 
-        // Se è stata configurata un'email PayPal reale, prepara il collegamento diretto PayPal Checkout
+        // Controlla se hai inserito la tua vera email PayPal
         if (PAYPAL_BUSINESS_EMAIL && PAYPAL_BUSINESS_EMAIL !== 'tuo-indirizzo@paypal.it') {
             const params = new URLSearchParams({
                 cmd: '_xclick',
                 business: PAYPAL_BUSINESS_EMAIL,
                 item_name: itemNames.substring(0, 127),
                 amount: totalAmount.toFixed(2),
-                currency_code: 'EUR'
+                currency_code: 'EUR',
+                // URL di ritorno al tuo sito GitHub Pages dopo il pagamento completato
+                return: window.location.href.split('#')[0] + '?pagamento=successo'
             });
             window.open(`https://www.paypal.com/cgi-bin/webscr?${params.toString()}`, '_blank', 'noopener');
             return;
         }
 
-        // Simulazione in anteprima finché non inserisci la tua email PayPal
-        showNotification(`Ordine carrello (${formatEuro(totalAmount)}) pronto per PayPal. Inserisci la tua email in PAYPAL_BUSINESS_EMAIL nel codice.`);
+        // Avviso se l'email non è ancora stata configurata nel codice
+        showNotification(`Attenzione: inserisci la tua vera email PayPal nella costante PAYPAL_BUSINESS_EMAIL nel codice.`, true);
     }
 
     // Formatta numero in valuta Euro (es. € 14,90)
@@ -815,6 +815,14 @@
     window.addEventListener('load', () => {
         loadPartnerBanners();
         initPayPalSDK();
+
+        // Controlla se l'utente è tornato da PayPal con pagamento riuscito
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('pagamento') === 'successo') {
+            showNotification('Grazie! Pagamento PayPal completato con successo.');
+            // Pulisce la URL ripulendo il parametro
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     });
 </script>
 
